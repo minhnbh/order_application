@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, Alert } from 'react-native';
+import { View, Text, Alert, Keyboard } from 'react-native';
 import { Button, Item, Input, Icon } from 'native-base';
+import { login } from '../api/UserServices';
+import {
+    StackActions,
+    NavigationActions,
+    NavigationEvents
+  } from "react-navigation";
 
 export default class Login extends Component {
 
@@ -19,7 +25,19 @@ export default class Login extends Component {
     }
 
     signIn() {
-        Alert.alert('Thông báo', 'Vợ heooooooooo');
+        Keyboard.dismiss();
+        login(this.state.username, this.state.password, status => {
+            if (status) {
+                this.props.navigation.dispatch(
+                    StackActions.reset({
+                        index: 0,
+                        actions: [NavigationActions.navigate({ routeName: "bottomTabNavigator" })]
+                    })
+                );
+            } else {
+                Alert.alert('Thông báo', 'Username or password is not correct. Please check and try again.')
+            }
+        });
     }
 
     render() {
@@ -32,11 +50,11 @@ export default class Login extends Component {
                     {/* <View style={{ flex: 1, flexDirection: 'row', margin: 30 }}> */}
                         <Item style={{ marginLeft: 20, marginRight: 20 }}>
                             <Icon type="FontAwesome5" active name='envelope' style={{ color: 'white', width: 50 }} />
-                            <Input placeholder='Icon Textbox' placeholderTextColor="white" onChangeText={(value) => this.onFieldChange('username', value)} />
+                            <Input placeholder='Username' placeholderTextColor="white" style={{ color: 'white' }} onChangeText={(value) => this.onFieldChange('username', value)} />
                         </Item>
                         <Item style={{ marginLeft: 20, marginRight: 20 }}>
                             <Icon type="FontAwesome5" active name='lock' style={{ color: 'white', width: 50 }} />
-                            <Input placeholder='Icon Alignment in Textbox' placeholderTextColor="white" onChangeText={(value) => this.onFieldChange('password', value)} />
+                            <Input placeholder='Password' placeholderTextColor="white" style={{ color: 'white' }} onChangeText={(value) => this.onFieldChange('password', value)} />
                         </Item>
                         <Button rounded style={{ backgroundColor: '#CFAB57', alignSelf: 'center', paddingLeft: 100, paddingRight: 100, marginTop: 50 }}
                             onPress={() => { this.signIn() }}>

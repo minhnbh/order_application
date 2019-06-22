@@ -1,38 +1,48 @@
-export function fetchAPI(url, method = 'GET', headers, body, is_authenticated = false, callback = null) {
+import { getAuthenticatedUser } from '../services/CommonServices';
+
+const prefix = "https://csshotscoffeeapi.azurewebsites.net/api/";
+
+export async function fetchAPI(url, method = 'GET', headers, body, is_authenticated = false, callback = null) {
     initialize(headers, is_authenticated, (headers) => {
-        console.log("FETCH URL: ", url);
-        console.log("HEADER: ", headers);
+        response = doFetch(url, method, headers, body, callback);
+    });
+}
+
+async function doFetch(url, method, headers, body, callback) {
+    try {
         if (body) {
-            fetch(prefix + version + url, {
+            console.log("BODY: ", body);
+            let response = await fetch(prefix + url, {
                 method: method,
                 headers: headers,
                 body: JSON.stringify(body)
-            }).then((response) => response.json())
-                .then((responseJson) => {
-                    if (callback) {
-                        callback(responseJson);
-                    }
-                })
-                .catch((error) => {
-                    console.log("FETCH API ERROR: ", error);
-                    errorHandle(error);
+            });
+            console.log("FETCH API RESPONSE: ", response);
+            if (response.ok) {
+                response.json().then(responseJson => {
+                    callback(responseJson);
                 });
+            } else {
+                callback(null);
+            }
         } else {
-            fetch(prefix + version + url, {
+            let response = await fetch(prefix + url, {
                 method: method,
                 headers: headers
-            }).then((response) => response.json())
-                .then((responseJson) => {
-                    if (callback) {
-                        callback(responseJson);
-                    }
-                })
-                .catch((error) => {
-                    console.log("FETCH API ERROR: ", error);
-                    errorHandle(error);
+            });
+            console.log("FETCH API RESPONSE: ", response);
+            if (response.ok) {
+                response.json().then(responseJson => {
+                    callback(responseJson);
                 });
+            } else {
+                callback(null);
+            }
         }
-    });
+    } catch(error) {
+        console.log("FETCH API ERROR: ", error);
+        return null;
+    };
 }
 
 export function initialize(headers, is_authenticated, callback) {
@@ -47,3 +57,27 @@ export function initialize(headers, is_authenticated, callback) {
         callback(headers);
     }
 }
+
+export function getToken(callback) {
+    getAuthenticatedUser(user => {
+        if (user) {
+            callback('Bearer ' + user.token);
+        } else {
+            callback(null);
+        }
+    })
+}
+
+// export function isJson(str) {
+//     if (/^[\],:{}\s]*$/.test(str.replace(/\\["\\\/bfnrtu]/g, '@').
+//     replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
+//     replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+
+//     return true;
+
+//     }else{
+
+//     return false;
+
+//     }
+// }

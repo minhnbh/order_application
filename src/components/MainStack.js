@@ -8,7 +8,7 @@ import {
 	NavigationEvents
 } from "react-navigation";
 
-import React from 'react';
+import React, { Component } from 'react';
 import Faq from '../components/Faq';
 import Order from '../components/Order';
 import Home from '../components/Home';
@@ -18,40 +18,56 @@ import CartTab from './CartTab';
 import Login from '../components/Login';
 import Initialize from '../components/Initialize';
 
-import { Image, View } from 'react-native';
+import { Image, View, Text } from 'react-native';
 import { Thumbnail } from 'native-base';
+
+class HeaderNavigation extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <View style={{ flex: 1 }}>
+                <Text>Hello John.</Text>
+            </View>
+        )
+    }
+
+}
 
 const bottomTabNavigator = createBottomTabNavigator(
     {
         Faq: {
             screen: Faq,
-            navigationOptions: ({ navigation }) => ({
+            navigationOptions: {
                 title: 'faq'
-            })
+            }
         },
         Order: {
             screen: Order,
-            navigationOptions: ({ navigation }) => ({
+            navigationOptions: {
                 title: 'orders'
-            })
+            }
         },
         Home: {
             screen: Home,
-            navigationOptions: ({ navigation }) => ({
+            navigationOptions: {
                 title: 'home'
-            })
+            }
         },
         Cart: {
             screen: Cart,
-            navigationOptions: ({ navigation }) => ({
+            navigationOptions: {
                 title: 'cart'
-            })
+            }
         },
         Profile: {
             screen: Profile,
-            navigationOptions: ({ navigation }) => ({
+            navigationOptions: {
                 title: 'account'
-            })
+            }
         }
     }, {
         initialRouteName: "Home",
@@ -113,7 +129,13 @@ const MainNav = createStackNavigator(
 			}
         },
         bottomTabNavigator: {
-            screen: bottomTabNavigator
+            screen: bottomTabNavigator,
+            navigationOptions: {
+                headerStyle: {
+                    backgroundColor: '#2B2B2B',
+                    color: 'white'
+                }
+            }
         }
     },
     {
