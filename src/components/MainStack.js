@@ -19,7 +19,6 @@ import Login from '../components/Login';
 import Initialize from '../components/Initialize';
 
 import { Image, View, Text } from 'react-native';
-import { Thumbnail } from 'native-base';
 
 class HeaderNavigation extends Component {
 
@@ -130,16 +129,30 @@ const MainNav = createStackNavigator(
         },
         bottomTabNavigator: {
             screen: bottomTabNavigator,
-            navigationOptions: {
-                headerStyle: {
-                    backgroundColor: '#2B2B2B',
-                    color: 'white'
+            navigationOptions: ({ navigation }) => {
+                const { index } = navigation.state;
+                if (index == 2) {
+                    return {
+                        headerTitle: <Text style={{ marginLeft: 30, color: 'white', fontFamily: 'Comfortaa-Bold', }}>Hello John.</Text>,
+                    }
+                } else if (index == 3) {
+                    return {
+                        headerTitle: <Text style={{ width: '100%', marginLeft: 30, color: 'white', fontFamily: 'Comfortaa-Bold', padding: 5, borderBottomColor: '#CFAB57', borderBottomWidth: 1 }}>
+                            My Cart
+                        </Text>
+                    }
                 }
             }
         }
     },
     {
-        initialRouteName: 'Initialize'
+        initialRouteName: 'Initialize',
+        defaultNavigationOptions: ({ navigation }) => ({
+            headerStyle: {
+                fontFamily: 'Comfortaa-Bold',
+                backgroundColor: '#2B2B2B'
+            }
+        })
     }
 )
 

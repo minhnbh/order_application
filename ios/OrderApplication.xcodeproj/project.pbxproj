@@ -61,6 +61,9 @@
 		7B23B1E7BDFF4BDDB448C3C2 /* ReactNativeNavigationTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 8D63EB1BE1834224925AF2BB /* ReactNativeNavigationTests.xctest */; };
 		0571EA14A69A46428AEAA897 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E45D340164D1479790CB62D9 /* libRNGestureHandler.a */; };
 		F42CBE13195B4443B956A70E /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5859A2281010468CA9AFA235 /* libRNGestureHandler-tvOS.a */; };
+		DA91C551213244D595771722 /* Comfortaa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F322E8E856A54BBAB7006EC6 /* Comfortaa-Bold.ttf */; };
+		F1DCB1555DBA416EBF591367 /* Comfortaa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7581BC7F69AF40DF937FA925 /* Comfortaa-Light.ttf */; };
+		9E0EE291C4CF47A080330AE6 /* Comfortaa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16D63EF5033D4DF78ED39FE9 /* Comfortaa-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -392,6 +395,9 @@
 		036C8CF80DAC467D9A22E88B /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; name = "RNGestureHandler.xcodeproj"; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		E45D340164D1479790CB62D9 /* libRNGestureHandler.a */ = {isa = PBXFileReference; name = "libRNGestureHandler.a"; path = "libRNGestureHandler.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		5859A2281010468CA9AFA235 /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; name = "libRNGestureHandler-tvOS.a"; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		F322E8E856A54BBAB7006EC6 /* Comfortaa-Bold.ttf */ = {isa = PBXFileReference; name = "Comfortaa-Bold.ttf"; path = "../assets/fonts/Comfortaa-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7581BC7F69AF40DF937FA925 /* Comfortaa-Light.ttf */ = {isa = PBXFileReference; name = "Comfortaa-Light.ttf"; path = "../assets/fonts/Comfortaa-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		16D63EF5033D4DF78ED39FE9 /* Comfortaa-Regular.ttf */ = {isa = PBXFileReference; name = "Comfortaa-Regular.ttf"; path = "../assets/fonts/Comfortaa-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -684,6 +690,9 @@
 				BB022708254F4C42AB340236 /* rubicon-icon-font.ttf */,
 				DF56991923C34104A6E1ECF9 /* SimpleLineIcons.ttf */,
 				17F586676DC2464DA96B045A /* Zocial.ttf */,
+				F322E8E856A54BBAB7006EC6 /* Comfortaa-Bold.ttf */,
+				7581BC7F69AF40DF937FA925 /* Comfortaa-Light.ttf */,
+				16D63EF5033D4DF78ED39FE9 /* Comfortaa-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1153,6 +1162,9 @@
 				70C51A7B7F9A40A99A1C85B7 /* rubicon-icon-font.ttf in Resources */,
 				3F879BA0F6B245E0BD3E1B07 /* SimpleLineIcons.ttf in Resources */,
 				D410D4D770B9494A8DD87A2D /* Zocial.ttf in Resources */,
+				DA91C551213244D595771722 /* Comfortaa-Bold.ttf in Resources */,
+				F1DCB1555DBA416EBF591367 /* Comfortaa-Light.ttf in Resources */,
+				9E0EE291C4CF47A080330AE6 /* Comfortaa-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,20 +21,21 @@ export default class Home extends Component {
     render() {
         return (
             <ScrollView style={{ flex: 1 }}>
-                <Text style={{ color: '#2B2B2B', borderBottomColor: '#CFAB57', borderBottomWidth: 1, marginLeft: 30, padding: 10 }}>Get your coffee fix</Text>
+                <Text style={{ color: '#2B2B2B', borderBottomColor: '#CFAB57', borderBottomWidth: 1, marginLeft: 30, padding: 10, fontFamily: 'Comfortaa-Bold', fontSize: 18 }}>Get your coffee fix</Text>
                 { this.state.products ?
                 <FlatList
+                    style={{ marginLeft: 30, marginRight: 30 }}
                     data={ this.state.products }
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={({ item }) => 
-                    <TouchableOpacity>
+                    <TouchableOpacity style={{ marginTop: 20 }}>
                         <View style={{ flex: 1, flexDirection: 'row' }}>
                             <View style={{ flex: 0.25 }}>
-                                <Image source={{ uri: item.ImageURL }} style={{ height: 50, width: 50, borderRadius: 10 }} />
+                                <Image source={{ uri: item.ImageURL }} style={{ height: 50, width: 50, borderRadius: 10, alignSelf: 'center' }} />
                             </View>
                             <View style={{ flex: 0.75 }}>
-                                <Text>{ item.Title }</Text>
-                                <Text>${ item.Price }</Text>
+                                <Text style={{ fontFamily: 'Comfortaa-Bold', fontSize: 18, color: '#2B2B2B' }}>{ item.Title }</Text>
+                                <Text style={{ fontFamily: 'Comfortaa-Regular', fontSize: 16, color: '#2B2B2B' }}>${ item.Price }</Text>
                             </View>
                         </View>
                     </TouchableOpacity>

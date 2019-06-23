@@ -1,4 +1,5 @@
 import { getAuthenticatedUser } from '../services/CommonServices';
+import axios from 'axios';
 
 const prefix = "https://csshotscoffeeapi.azurewebsites.net/api/";
 
@@ -25,6 +26,18 @@ async function doFetch(url, method, headers, body, callback) {
             } else {
                 callback(null);
             }
+            // axios({
+            //     method: method,
+            //     url: url,
+            //     headers: headers,
+            //     data: body,
+            //     timeout: 5000
+            // }).then(response => {
+            //     console.log("asbdjsabdja: ", response);
+            //     callback(response);
+            // }).catch(error => {
+            //     console.log("AXIOS ERROR: ", error);
+            // })
         } else {
             let response = await fetch(prefix + url, {
                 method: method,

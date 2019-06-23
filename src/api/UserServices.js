@@ -6,7 +6,7 @@ export function login(username, password, callback) {
         username: username,
         password: password
     }, false, (result) => {
-        if (result.token) {
+        if (result && result.token) {
             result['expired'] = Math.floor(Date.now() / 1000) + result.duration;
             console.log("RESULTTTT: ", result.expired);
             saveAuthenticatedUser(result, status => {
