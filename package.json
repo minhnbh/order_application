@@ -10,7 +10,7 @@
     "crypto-js": "^3.1.9-1",
     "jest-serializer": "^24.4.0",
     "jest-worker": "^24.6.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "native-base": "^2.12.1",
     "react": "16.8.3",
     "react-native": "0.59.9",
